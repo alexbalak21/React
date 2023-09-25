@@ -1,20 +1,19 @@
-import { MouseEvent } from "react"
-
-let selectedIndex = 0
-
-function ListItem(name = "", key = 0) {
-    const handleClick = (event: MouseEvent) => console.log(event)
-
+function ListItem(
+    name = "",
+    index = 0,
+    selectedIndex: number,
+    setSelectedIndex: Function
+) {
     return (
         name && (
             <li
-                key={key}
+                key={index}
                 className={
-                    selectedIndex === key
+                    selectedIndex === index
                         ? "list-group-item text-center active"
                         : "list-group-item text-center"
                 }
-                onClick={handleClick}
+                onClick={() => setSelectedIndex(index)}
             >
                 {name}
             </li>
