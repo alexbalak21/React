@@ -2,7 +2,8 @@ function ListItem(
     name = "",
     index = 0,
     selectedIndex: number,
-    setSelectedIndex: Function
+    setSelectedIndex: Function,
+    onSelectItem: Function
 ) {
     return (
         name && (
@@ -13,7 +14,10 @@ function ListItem(
                         ? "list-group-item text-center active"
                         : "list-group-item text-center"
                 }
-                onClick={() => setSelectedIndex(index)}
+                onClick={() => {
+                    setSelectedIndex(index)
+                    onSelectItem(name)
+                }}
             >
                 {name}
             </li>

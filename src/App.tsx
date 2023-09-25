@@ -55,9 +55,15 @@ function App() {
         "London",
         "Vatican City",
     ]
+    const handleSelectItem = (item: string) => console.log(item)
+
     return (
         <div>
-            <ListGroup items={items} heading="Capitals"></ListGroup>
+            <ListGroup
+                items={items}
+                heading="Capitals"
+                onSelectItem={handleSelectItem}
+            ></ListGroup>
         </div>
     )
 }

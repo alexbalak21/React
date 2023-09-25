@@ -4,9 +4,10 @@ import ListItem from "./ListItem"
 interface Props {
     items: string[]
     heading: string
+    onSelectItem: (item: string) => void
 }
 
-function ListGroup({ items, heading }: Props) {
+function ListGroup({ items, heading, onSelectItem }: Props) {
     const [selectedIndex, setSelectedIndex] = useState(-1)
     return (
         <>
@@ -14,7 +15,13 @@ function ListGroup({ items, heading }: Props) {
             {items.length === 0 && <p>No Item Found.</p>}
             <ul className="list-group">
                 {items.map((name, index) =>
-                    ListItem(name, index, selectedIndex, setSelectedIndex)
+                    ListItem(
+                        name,
+                        index,
+                        selectedIndex,
+                        setSelectedIndex,
+                        onSelectItem
+                    )
                 )}
             </ul>
         </>
