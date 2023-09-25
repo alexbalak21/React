@@ -1,8 +1,65 @@
 import ListGroup from "./components/ListGroup"
 
-
 function App() {
-  return <div><ListGroup></ListGroup></div>
+    const items = [
+        "Mariehamn",
+        "Tirana",
+        "Andorra la Vella",
+        "Vienna",
+        "Minsk",
+        "Brussels",
+        "Sarajevo",
+        "Sofia",
+        "Zagreb",
+        "Prague",
+        "Copenhagen",
+        "Tallinn",
+        "Tórshavn",
+        "Helsinki",
+        "Paris",
+        "Berlin",
+        "Gibraltar",
+        "Athens",
+        "Saint Peter Port",
+        "Budapest",
+        "Reykjavík",
+        "Dublin",
+        "Douglas",
+        "Rome",
+        "Saint Helier",
+        "Pristina",
+        "Riga",
+        "Vaduz",
+        "Vilnius",
+        "Luxembourg",
+        "Valletta",
+        "Chisinau",
+        "Monaco",
+        "Podgorica",
+        "Amsterdam",
+        "Skopje",
+        "Oslo",
+        "Warsaw",
+        "Lisbon",
+        "Bucharest",
+        "Moscow",
+        "San Marino",
+        "Belgrade",
+        "Bratislava",
+        "Ljubljana",
+        "Madrid",
+        "Longyearbyen",
+        "Stockholm",
+        "Bern",
+        "Kyiv",
+        "London",
+        "Vatican City",
+    ]
+    return (
+        <div>
+            <ListGroup items={items} heading="Capitals"></ListGroup>
+        </div>
+    )
 }
 
 export default App
