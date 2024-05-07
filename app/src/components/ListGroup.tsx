@@ -1,5 +1,5 @@
 function ListGroup() {
-    const cities = [
+    let cities = [
         "New York",
         "Los Angeles",
         "Chicago",
@@ -32,8 +32,12 @@ function ListGroup() {
         "Cairo",
     ]
 
+    const messageIfEmpty = cities.length === 0 ? <p>No Item found</p> : null
+
     return (
         <>
+            <h1>List Group</h1>
+            {messageIfEmpty}
             <ul className="list-group">
                 {cities.map((city, id) => (
                     <li key={id} className={"list-group-item"}>
