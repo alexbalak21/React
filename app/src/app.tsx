@@ -1,13 +1,14 @@
 import {useState} from "preact/hooks"
 import Button from "./components/Button"
+import Alert from "./components/Alert"
 
 export function App() {
-    const [counter, incrementCounter] = useState(0)
+    const [alertVisible, setAlertVisible] = useState(false)
 
     return (
         <div>
-            <h1>{counter}</h1>
-            <Button onClick={() => incrementCounter(counter + 1)}>My Button</Button>
+            {alertVisible && <Alert closeAlert={() => setAlertVisible(false)}>My Alert</Alert>}
+            <Button onClick={() => setAlertVisible(true)}>My Button</Button>
         </div>
     )
 }
