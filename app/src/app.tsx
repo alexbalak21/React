@@ -33,9 +33,11 @@ export function App() {
         "Nairobi",
         "Cairo",
     ]
+    const handleSelectCity = (city: string) => console.log(city)
+
     return (
         <div>
-            <ListGroup cities={cities} heading="Cities" />
+            <ListGroup cities={cities} onSelectCity={handleSelectCity} heading="Cities" />
         </div>
     )
 }
