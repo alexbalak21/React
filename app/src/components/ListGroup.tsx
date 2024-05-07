@@ -1,3 +1,5 @@
+import {useState} from "preact/hooks"
+
 function ListGroup() {
     let cities = [
         "New York",
@@ -31,8 +33,10 @@ function ListGroup() {
         "Nairobi",
         "Cairo",
     ]
-
     const messageIfEmpty = cities.length === 0 && <p>No Item found</p>
+
+    const [selectedCity, setSelectedCity] = useState(-1)
+    const handleClick = (event: MouseEvent) => console.log(event)
 
     return (
         <>
@@ -40,7 +44,12 @@ function ListGroup() {
             {messageIfEmpty}
             <ul className="list-group">
                 {cities.map((city, id) => (
-                    <li key={id} className={"list-group-item"}>
+                    <li
+                        key={id}
+                        onClick={() => {
+                            setSelectedCity(id)
+                        }}
+                        className={selectedCity === id ? "list-group-item active" : "list-group-item"}>
                         {city}
                     </li>
                 ))}
