@@ -32,7 +32,7 @@ function ListGroup() {
         "Cairo",
     ]
 
-    const messageIfEmpty = cities.length === 0 ? <p>No Item found</p> : null
+    const messageIfEmpty = cities.length === 0 && <p>No Item found</p>
 
     return (
         <>
