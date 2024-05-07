@@ -1,11 +1,11 @@
-import {ReactNode} from "preact/compat"
-
 interface Props {
-    children: ReactNode
+    children: string
+    type?: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark"
+    close: () => void
 }
 
-const Alert = ({children}: Props) => {
-    return <div className={"alert alert-primary"}>{children}</div>
+const Alert = ({children, type = "primary"}: Props) => {
+    return <div className={"alert alert-" + type}>{children}</div>
 }
 
 export default Alert
