@@ -1,14 +1,62 @@
 import {useState} from "preact/hooks"
-import Button from "./components/Button"
-import Alert from "./components/Alert"
+
+import ListGroup from "./components/ListGroup"
 
 export function App() {
-    const [alertVisible, setAlertVisible] = useState(false)
-
+    const cities = [
+        "New York",
+        "Los Angeles",
+        "Chicago",
+        "Houston",
+        "Phoenix",
+        "Philadelphia",
+        "San Antonio",
+        "San Diego",
+        "Dallas",
+        "San Jose",
+        "San Francisco",
+        "Seattle",
+        "Denver",
+        "Boston",
+        "Miami",
+        "Atlanta",
+        "London",
+        "Paris",
+        "Berlin",
+        "Rome",
+        "Madrid",
+        "Lisbon",
+        "Amsterdam",
+        "Brussels",
+        "Prague",
+        "Vienna",
+        "Tokyo",
+        "Seoul",
+        "Shanghai",
+        "Beijing",
+        "Bangkok",
+        "Mumbai",
+        "Sydney",
+        "Melbourne",
+        "Cape Town",
+        "Johannesburg",
+        "Cairo",
+        "Buenos Aires",
+        "São Paulo",
+        "Mexico City",
+        "Toronto",
+        "Vancouver",
+        "Montreal",
+        "Auckland",
+        "Dubai",
+        "Moscow",
+        "Istanbul",
+        "Singapore",
+        "Hong Kong",
+    ]
     return (
         <div>
-            {alertVisible && <Alert closeAlert={() => setAlertVisible(false)}>My Alert</Alert>}
-            <Button onClick={() => setAlertVisible(true)}>My Button</Button>
+            <ListGroup heading="Cities" onSelectCity={(id) => console.log(id)} cities={cities}></ListGroup>
         </div>
     )
 }
