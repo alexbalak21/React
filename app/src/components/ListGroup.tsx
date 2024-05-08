@@ -1,6 +1,7 @@
 import {useState} from "preact/hooks"
 import styles from "./ListGroup.module.css"
 import styled from "styled-components"
+import {FaCity} from "react-icons/fa"
 
 const List = styled.ul`
     list-style: none;
@@ -41,6 +42,7 @@ function ListGroup({cities, heading, onSelectCity}: Props) {
                         }}
                         className={selectedCity === id ? "list-group-item active" : "list-group-item"}>
                         {city}
+                        <FaCity />
                     </ListItem>
                 ))}
             </List>
