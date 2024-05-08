@@ -1,5 +1,21 @@
 import {useState} from "preact/hooks"
 import styles from "./ListGroup.module.css"
+import styled from "styled-components"
+
+const List = styled.ul`
+    list-style: none;
+    padding: 0;
+    color: red;
+`
+interface ListItemProps {
+    active: boolean
+}
+
+const ListItem = styled.li<ListItemProps>`
+    padding: 6px;
+    background: ${(props) => (props.active ? "grey" : "")};
+`
+
 interface Props {
     cities: string[]
     heading: string
@@ -14,9 +30,10 @@ function ListGroup({cities, heading, onSelectCity}: Props) {
         <>
             <h1>{heading}</h1>
             {messageIfEmpty}
-            <ul className={[styles.ListGroup, styles.red].join(" ")}>
+            <List className={[styles.ListGroup, styles.red].join(" ")}>
                 {cities.map((city, id) => (
-                    <li
+                    <ListItem
+                        active={id === selectedCity}
                         key={id}
                         onClick={() => {
                             setSelectedCity(id)
@@ -24,9 +41,9 @@ function ListGroup({cities, heading, onSelectCity}: Props) {
                         }}
                         className={selectedCity === id ? "list-group-item active" : "list-group-item"}>
                         {city}
-                    </li>
+                    </ListItem>
                 ))}
-            </ul>
+            </List>
         </>
     )
 }
