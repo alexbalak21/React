@@ -1,15 +1,17 @@
-import React from "react"
-
 function Form() {
     return (
-        <form action="">
-            <div className="bm-3">
+        <form
+            onSubmit={(e) => {
+                e.preventDefault()
+                console.log("Submit")
+            }}>
+            <div className="mb-3">
                 <label htmlFor="name" className="form-label">
                     Name
                 </label>
                 <input id="name" type="text" className="form-control" />
             </div>
-            <div className="bm-3">
+            <div className="mb-3">
                 <label htmlFor="age" className="form-label">
                     Age
                 </label>
