@@ -1,7 +1,9 @@
+import {FormEvent} from "react"
+
 function Form() {
     return (
         <form
-            onSubmit={(e) => {
+            onSubmit={(e: FormEvent) => {
                 e.preventDefault()
                 console.log("Submit")
             }}>
