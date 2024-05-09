@@ -13,7 +13,7 @@ function Like({onClick}: Props) {
         onClick()
     }
     const size = 20
-    if (liked)q
+    if (liked)
         return (
             <i onClick={toggle}>
                 <FaHeart color="red" size={size} />

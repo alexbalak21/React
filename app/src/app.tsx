@@ -1,40 +1,13 @@
-import {useState} from "preact/hooks"
-import {produce} from "immer"
+import ExpendableText from "./components/ExpendableText"
 
 export function App() {
-    const [bugs, setBugs] = useState([
-        {id: 1, title: "Bug 1", fixed: true},
-        {id: 2, title: "Bug 2", fixed: false},
-    ])
-
-    const [customer, setCustomer] = useState({
-        name: "John",
-        address: {
-            city: "New York",
-            zipCode: 10008,
-        },
-    })
-
-    const handleClick = () => {
-        setBugs(
-            produce((draft) => {
-                const bug = draft.find((bug) => bug.id === 2)
-                if (bug) bug.fixed = true
-            })
-        )
-    }
-
-    const handleDisplay = () => console.log(bugs)
-
     return (
         <div>
-            {bugs.map((bug) => (
-                <p key={bug.id}>
-                    {bug.title} {bug.fixed ? "Fixed" : "Not Fixed"}
-                </p>
-            ))}
-            <button onClick={handleClick}>Fix</button> <br />
-            <button onClick={handleDisplay}>Display</button>
+            <ExpendableText maxChars={20}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, nostrum. Amet enim, quo quos
+                deserunt dolor aspernatur corporis necessitatibus totam ipsa quas voluptas ducimus, molestiae eum
+                similique non. Quas, nostrum?
+            </ExpendableText>
         </div>
     )
 }
