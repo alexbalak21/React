@@ -7,6 +7,14 @@ export function App() {
         {id: 2, title: "Bug 2", fixed: false},
     ])
 
+    const [customer, setCustomer] = useState({
+        name: "John",
+        address: {
+            city: "New York",
+            zipCode: 10008,
+        },
+    })
+
     const handleClick = () => {
         setBugs(
             produce((draft) => {
