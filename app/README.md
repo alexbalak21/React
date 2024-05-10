@@ -1,30 +1,52 @@
-# React + TypeScript + Vite
+# React Form with Validation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains a simple React form component with validation using the `react-hook-form` library and schema-based validation with `zod`.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Form input fields for name and age
+- Validation rules for name (minimum length of 4 characters) and age (must be a number with a minimum value of 1)
+- Error messages displayed for invalid inputs
+- Form submission with console logging of form data
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To run this project locally, follow these steps:
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository to your local machine:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
+2. Navigate to the project directory: "app"
+
+3. Install dependencies using "npm i"
+
+4. Start the development server: "npm run dev"
+
+5. Open your web browser and go to http://localhost:3000 to view the form.
+
+## Dependencies
+
+- `react`: JavaScript library for building user interfaces
+- `react-dom`: React package for working with the DOM
+- `react-hook-form`: Library for managing form state and validation in React
+- `zod`: Library for schema-based validation
+- `@hookform/resolvers`: Additional package for integrating Zod schema validation with `react-hook-form`
+
+## Usage
+
+You can use this form component in your React projects by importing it and rendering it within your application. Here's an example:
+
+```jsx
+import React from "react"
+import Form from "./components/Form"
+
+function App() {
+  return (
+    <div className="App">
+      <h1>React Form with Validation</h1>
+      <Form />
+    </div>
+  )
 }
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+export default App
+```

@@ -1,50 +1,54 @@
-import {FieldValues, useForm} from "react-hook-form"
+import {useForm, FieldValues} from "react-hook-form"
 import {z} from "zod"
+import {zodResolver} from "@hookform/resolvers/zod"
 
+// Define a schema using the Zod library to validate form data
 const schema = z.object({
-    name: z.string().min(3),
-    age: z.number().min(18),
+  name: z.string().min(4), // Ensure the name is a string with a minimum length of 4 characters
+  age: z.number({invalid_type_error: "Age is required"}).min(1, {message: "Age must be at least 1."}), // Ensure the age is a number with a minimum value of 1
 })
 
+// Define a type alias for the form data based on the schema
 type FormData = z.infer<typeof schema>
 
+// Define a functional component called Form
 function Form() {
-    const {
-        register,
-        handleSubmit,
-        formState: {errors},
-    } = useForm()
+  // Destructure the useForm hook to access form methods and state
+  const {
+    register, // Function to register form inputs
+    handleSubmit, // Function to handle form submission
+    formState: {errors}, // Object containing form validation errors
+  } = useForm<FormData>({resolver: zodResolver(schema)}) // Initialize useForm with the schema for validation
 
-    const onSubmit = () => console.log(errors)
+  // Define a function to execute when the form is submitted
+  const onSubmit = (data: FieldValues) => console.log(data) // Log form data to the console
 
-    return (
-        <form className="my-5" onSubmit={handleSubmit(onSubmit)}>
-            <label className="form-label" htmlFor="name">
-                Name
-            </label>
-            <div className="mb-3">
-                <input
-                    className={errors.name ? "form-control is-invalid" : "form-control"}
-                    id="name"
-                    {...register("name", {required: true, minLength: 4})}
-                />
-                {errors.name?.type === "required" && <p className="text-danger">Name is required</p>}
-                {errors.name?.type === "minLength" && <p className="text-danger">Name must be 4 characters long.</p>}
-            </div>
-            <div className="mb-3">
-                <label htmlFor="age">Age</label>
-                <input
-                    type="text"
-                    className={errors.age ? "form-control is-invalid" : "form-control"}
-                    id="age"
-                    {...register("age", {required: true, min: 1})}
-                />
-                {errors.age?.type === "required" && <p className="text-danger">Age is required</p>}
-                {errors.age?.type === "min" && <p className="text-danger">Age must be at least 1</p>}
-            </div>
-            <button className="btn btn-primary">Submit</button>
-        </form>
-    )
+  // Render the form JSX
+  return (
+    <form className="my-5" onSubmit={handleSubmit(onSubmit)}>
+      {/* Input field for the name */}
+      <label className="form-label" htmlFor="name">
+        Name
+      </label>
+      <div className="mb-3">
+        {/* Input field for the name with registration and error handling */}
+        <input className={errors.name ? "form-control is-invalid" : "form-control"} id="name" {...register("name")} />
+        {/* Display validation error message if the name field has errors */}
+        {errors.name && <p className="text-danger">{errors.name.message}</p>}
+      </div>
+      <div className="mb-3">
+        {/* Input field for the age */}
+        <label htmlFor="age">Age</label>
+        {/* Input field for the age with registration, error handling, and conversion to number */}
+        <input type="text" className={errors.age ? "form-control is-invalid" : "form-control"} id="age" {...register("age", {valueAsNumber: true})} />
+        {/* Display validation error message if the age field has errors */}
+        {errors.age && <p className="text-danger">{errors.age.message}</p>}
+      </div>
+      {/* Submit button */}
+      <button className="btn btn-primary">Submit</button>
+    </form>
+  )
 }
 
+// Export the Form component as the default export
 export default Form
