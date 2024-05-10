@@ -4,7 +4,7 @@ import {zodResolver} from "@hookform/resolvers/zod"
 
 // Define a schema using the Zod library to validate form data
 const schema = z.object({
-  name: z.string().min(4), // Ensure the name is a string with a minimum length of 4 characters
+  name: z.string().min(4, {message: "Name must be at least 4 characters."}), // Ensure the name is a string with a minimum length of 4 characters
   age: z.number({invalid_type_error: "Age is required"}).min(1, {message: "Age must be at least 1."}), // Ensure the age is a number with a minimum value of 1
 })
 
@@ -17,7 +17,7 @@ function Form() {
   const {
     register, // Function to register form inputs
     handleSubmit, // Function to handle form submission
-    formState: {errors}, // Object containing form validation errors
+    formState: {errors, isValid}, // Object containing form validation errors and validation status
   } = useForm<FormData>({resolver: zodResolver(schema)}) // Initialize useForm with the schema for validation
 
   // Define a function to execute when the form is submitted
@@ -45,7 +45,9 @@ function Form() {
         {errors.age && <p className="text-danger">{errors.age.message}</p>}
       </div>
       {/* Submit button */}
-      <button className="btn btn-primary">Submit</button>
+      <button disabled={!isValid} className="btn btn-primary">
+        Submit
+      </button>
     </form>
   )
 }
