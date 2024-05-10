@@ -1,20 +1,21 @@
-import {FieldValues, useForm} from "react-hook-form";
-import {z} from "zod";
+import {FieldValues, useForm} from "react-hook-form"
+import {z} from "zod"
 
 const schema = z.object({
     name: z.string().min(3),
     age: z.number().min(18),
-});
+})
 
-type FormData = z.infer<typeof schema>;
+type FormData = z.infer<typeof schema>
 
 function Form() {
     const {
         register,
         handleSubmit,
         formState: {errors},
-    } = useForm();
-    const onSubmit = () => console.log(errors);
+    } = useForm()
+
+    const onSubmit = () => console.log(errors)
 
     return (
         <form className="my-5" onSubmit={handleSubmit(onSubmit)}>
@@ -30,9 +31,20 @@ function Form() {
                 {errors.name?.type === "required" && <p className="text-danger">Name is required</p>}
                 {errors.name?.type === "minLength" && <p className="text-danger">Name must be 4 characters long.</p>}
             </div>
+            <div className="mb-3">
+                <label htmlFor="age">Age</label>
+                <input
+                    type="text"
+                    className={errors.age ? "form-control is-invalid" : "form-control"}
+                    id="age"
+                    {...register("age", {required: true, min: 1})}
+                />
+                {errors.age?.type === "required" && <p className="text-danger">Age is required</p>}
+                {errors.age?.type === "min" && <p className="text-danger">Age must be at least 1</p>}
+            </div>
             <button className="btn btn-primary">Submit</button>
         </form>
-    );
+    )
 }
 
-export default Form;
+export default Form
