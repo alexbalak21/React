@@ -2,9 +2,9 @@ import Form from "./components/Form"
 
 function App() {
   return (
-    <div>
+    <main>
       <Form />
-    </div>
+    </main>
   )
 }
 

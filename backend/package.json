@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "app",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,9 +7,9 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alex",
   "license": "ISC",
-  "description": "",
+  "description": "Simple express app to serve React JS",
   "dependencies": {
     "express": "^4.19.2"
   }
