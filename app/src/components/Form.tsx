@@ -1,4 +1,4 @@
-import { FormEvent, useRef, useState } from "react"
+import { FormEvent, useState } from "react"
 
 function Form() {
   const [person, setPerson] = useState({ name: "", age: 0 })
