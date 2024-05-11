@@ -22,7 +22,9 @@ function Expenses({expensesData, deleteExpense}: ExpensesProps) {
     <div className="my-5">
       <div className="mb-4">
         <select onChange={handleSelectChange} id="category" className="form-select">
-          <option defaultValue="">All</option>
+          <option defaultValue="" value="">
+            All
+          </option>
           {categories.map((category, index) => (
             <option key={index} value={category}>
               {category}

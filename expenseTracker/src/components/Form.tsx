@@ -43,7 +43,9 @@ function Form({categories, addExpense}: Props) {
           ))}
         </select>
       </div>
-      <button className="btn btn-primary">Add</button>
+      <div className="text-center">
+        <button className="btn btn-primary">Add</button>
+      </div>
     </form>
   )
 }
