@@ -4,11 +4,6 @@ interface FormData {
   description: string
 }
 
-interface Task {
-  id: number
-  description: string
-}
-
 interface Props {
   id?: number
   description?: string
@@ -17,13 +12,12 @@ interface Props {
 }
 
 function Form({id = -1, description = "", addTask, updateTask}: Props) {
-  const {register, handleSubmit, reset} = useForm<FormData>()
+  const {register, handleSubmit, reset, setValue} = useForm<FormData>()
+  if (id !== -1) setValue("description", description)
 
   const onSubmit = (formData: FieldValues) => {
-    if (id !== -1) {
-      updateTask(id, formData.description)
-      console.log("Update ", id, formData.description)
-    } else addTask(formData.description)
+    if (id !== -1) updateTask(id, formData.description)
+    else addTask(formData.description)
     reset()
   }
 
@@ -33,7 +27,7 @@ function Form({id = -1, description = "", addTask, updateTask}: Props) {
         Description
       </label>
       <div className="col-lg-9">
-        <input className="form-control" placeholder={description} id="description" type="text" {...register("description")} />
+        <input className="form-control" id="description" type="text" {...register("description")} />
       </div>
       <button className="btn btn-success mx-5">Add</button>
     </form>

@@ -15,11 +15,15 @@ function App() {
           id={updateTaskId}
           description={updateTaskId !== -1 ? tasks.find((t) => t.id === updateTaskId)?.description : ""}
           addTask={(description) => setTasks([...tasks, {id: tasks[tasks.length - 1].id + 1, description, completed: false}])}
-          updateTask={(id, description) => setTasks(tasks.map((t) => (t.id !== id ? t : {...t, description: description})))}
+          updateTask={(id, description) => {
+            setTasks(tasks.map((t) => (t.id !== id ? t : {...t, description: description})))
+            setUpdateTaskId(-1)
+          }}
         />
       </div>
       <Tasks
         tasks={tasks}
+        updatedTask={updateTaskId}
         complete={(id) => setTasks(tasks.map((t) => (t.id !== id ? t : {...t, completed: !t.completed})))}
         deleteTask={(id) => setTasks(tasks.filter((t) => t.id !== id))}
         updateTask={(id) => setUpdateTaskId(id)}
