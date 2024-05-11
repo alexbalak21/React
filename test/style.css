@@ -56,3 +56,8 @@
     --bs-form-invalid-border-color: #ea868f;
   }
 }
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
