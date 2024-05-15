@@ -1,0 +1,90 @@
+{
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      // General strings
+      {
+        "scope": "string",
+        "settings": {
+          "foreground": "#b3b3b3" // Color for all strings
+        }
+      },
+      // Variables
+      {
+        "scope": "variable",
+        "settings": {
+          "foreground": "#39ac47" // Color for variables
+        }
+      },
+      // Constants
+      {
+        "scope": "variable.other.constant",
+        "settings": {
+          "foreground": "#33993f" // Color for constants
+        }
+      },
+      // Attribute names
+      {
+        "scope": "entity.other.attribute-name",
+        "settings": {
+          "foreground": "#CE9178", // Color for attribute names
+          "fontStyle": "italic" // Italic font style for attribute names
+        }
+      },
+      // Functions and Methods
+      {
+        "scope": "entity.name.function",
+        "settings": {
+          "foreground": "#8A2BE2" // Color for function names
+        }
+      },
+      {
+        "scope": "keyword",
+        "settings": {
+          "foreground": "#ffaf1a" // General keyword color
+        }
+      },
+      // Declaration Keywords
+      {
+        "scope": "keyword.declaration",
+        "settings": {
+          "foreground": "#FFD700" // Color for declaration keywords
+        }
+      },
+      // Control Keywords
+      {
+        "scope": "keyword.control",
+        "settings": {
+          "foreground": "#1E90FF" // Color for control keywords
+        }
+      },
+      // Class Keyword
+      {
+        "scope": "storage.type.class",
+        "settings": {
+          "foreground": "#1E90FF" // Color for class keyword
+        }
+      },
+      // Function Keyword
+      {
+        "scope": "storage.type.function",
+        "settings": {
+          "foreground": "#1E90FF" // Color for function keyword
+        }
+      },
+      // Object properties
+      {
+        "scope": "variable.other.property",
+        "settings": {
+          "foreground": "#cc0099" // Color for properties like length
+        }
+      },
+      // General operators
+      {
+        "scope": "keyword.operator",
+        "settings": {
+          "foreground": "#ffc966" // Color for all operators
+        }
+      }
+    ]
+  }
+}

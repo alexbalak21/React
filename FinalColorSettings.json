@@ -1,0 +1,75 @@
+{
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      // General strings
+      {
+        "scope": "string",
+        "settings": {
+          "foreground": "#b3b3b3" // Color for all strings
+        }
+      },
+      // Object properties
+      {
+        "scope": "variable.other.property",
+        "settings": {
+          "foreground": "#059862" // Color for properties like length
+        }
+      },
+      // Variables
+      {
+        "scope": "variable",
+        "settings": {
+          "foreground": "#39ac47" // Color for variables
+        }
+      },
+      // Constants
+      {
+        "scope": "variable.other.constant",
+        "settings": {
+          "foreground": "#33993f" // Color for constants
+        }
+      },
+      {
+        "scope": "entity.name.function",
+        "settings": {
+          "foreground": "#9551a7", // Color for function names
+          "fontStyle": "italic"
+        }
+      },
+      // Object properties
+      {
+        "scope": "variable.other.property",
+        "settings": {
+          "foreground": "#c58af9" // Color for properties like length
+        }
+      },
+      // Object properties
+      {
+        "scope": "variable.other.property",
+        "settings": {
+          "foreground": "#ca9829" // Color for properties like length
+        }
+      },
+      {
+        "scope": "entity.other.attribute-name",
+        "settings": {
+          "foreground": "#ca9829",
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "support.type.property-name.json",
+        "settings": {
+          "foreground": "#ca9829" // Color for JSON keys
+        }
+      },
+      // TypeScript specific type annotations
+      {
+        "scope": "meta.type.annotation",
+        "settings": {
+          "foreground": "#7B68EE" // Color for type annotations
+        }
+      }
+    ]
+  }
+}

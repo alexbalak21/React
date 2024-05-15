@@ -32,6 +32,9 @@ const expensesData: Expense[] = [
   {id: 20, category: "Shopping", description: "Shoes", price: 50},
 ]
 
+const categoriesData = [...new Set(expensesData.map((expense) => expense.category))]
+const categories = [...categoriesData] as const
+
 function App() {
   const [expenses, setExpenses] = useState(expensesData)
   const deleteExpense = (id: number) => setExpenses(expenses.filter((expense) => expense.id !== id))
@@ -40,15 +43,13 @@ function App() {
     <main className="container">
       <div>
         <Form
-          categories={[...new Set(expenses.map((expense) => expense.category))]}
+          categories={categories}
           addExpense={(expense) =>
             setExpenses([
               ...expenses,
               {
+                ...expense,
                 id: expenses[expenses.length - 1].id + 1,
-                category: expense.category,
-                description: expense.description,
-                price: parseFloat(expense.price),
               },
             ])
           }

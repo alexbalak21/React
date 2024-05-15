@@ -1,0 +1,42 @@
+{
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      // General strings
+      {
+        "scope": "string",
+        "settings": {
+          "foreground": "#b3b3b3" // Color for all strings
+        }
+      },
+      // Variables
+      {
+        "scope": "variable",
+        "settings": {
+          "foreground": "#39ac47" // Color for variables
+        }
+      },
+      // Constants
+      {
+        "scope": "variable.other.constant",
+        "settings": {
+          "foreground": "#33993f" // Color for constants
+        }
+      },
+      // Attribute names
+      {
+        "scope": "entity.other.attribute-name",
+        "settings": {
+          "foreground": "#CE9178", // Color for attribute names
+          "fontStyle": "italic" // Italic font style for attribute names
+        }
+      },
+      // Functions and Methods
+      {
+        "scope": "entity.name.function",
+        "settings": {
+          "foreground": "#8A2BE2" // Color for function names
+        }
+      }
+    ]
+  }
+}

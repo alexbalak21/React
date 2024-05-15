@@ -29,8 +29,8 @@ function Form({id = -1, description = "", addTask, updateTask}: Props) {
       <div className="col-lg-9">
         <input className="form-control" id="description" type="text" {...register("description")} />
       </div>
-
       <button className={"btn " + (id === -1 ? "btn-success" : "btn-primary")}>{id === -1 ? "Add" : "Update"}</button>
+      {id !== -1 ? <button className="btn btn-outline-danger">Cancel</button> : null}
     </form>
   )
 }
